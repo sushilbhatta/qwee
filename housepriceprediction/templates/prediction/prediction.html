@@ -58,7 +58,8 @@
       <div class="make-prediction__title">
         <h1>Provide Information for your Dream House</h1>
       </div>
-      <form action="/prediction" method="post" class="form-items">
+      <form action="/page/prediction/" method="post" class="form-items">
+        {% csrf_token %}
         <div class="form-item">
           <label for="address">Location of House</label>
           <input
@@ -74,6 +75,7 @@
           <input
             type="number"
             name="bedroom"
+            value=5
             placeholder="No of bedrooms"
             id="bedroom"
           />
@@ -89,6 +91,7 @@
           <input
             type="number"
             name="floors"
+            value=5
             placeholder="No of floors"
             id="floors"
           />
@@ -99,8 +102,39 @@
           <input
             type="number"
             name="bathroom"
+            value=5
             placeholder="No of Bathroom"
             id="bathroom"
+          />
+        </div>
+        <div class="form-item">
+          <label for="area">Area in aana</label>
+          <input
+            type="number"
+            name="area"
+            value=5
+            placeholder="Area in aana"
+            id="area"
+          />
+        </div>
+        <div class="form-item">
+          <label for="road">Road width</label>
+          <input
+            type="number"
+            name="road"
+            value=5
+            placeholder="Road Width"
+            id="road"
+          />
+        </div>
+        <div class="form-item">
+          <label for="amenities_no">Amenities</label>
+          <input
+            type="number"
+            name="amenities_no"
+            value=5
+            placeholder="No of Amenities"
+            id="amenities_no"
           />
         </div>
 
@@ -110,6 +144,7 @@
           <input
             type="number"
             name="parking"
+            value=5
             placeholder="Parking space"
             id="parking"
           />
@@ -173,6 +208,11 @@
         <button class="btn" type="submit">Make prediction</button>
       </form>
     </main>
+    <h1 style={'text-align':center}>
+      {%if price%}
+      <h2>Predicted Price: {{price}}</h2>
+      {%endif%}
+    </h1>
     <footer class="main-footer">
       <nav>
         <ul class="main-footer__links">

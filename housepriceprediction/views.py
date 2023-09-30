@@ -13,7 +13,7 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as auth_logout
-
+from . import modules
 
 # Create your views here.
 
@@ -60,7 +60,19 @@ def custom_logout(request):
 
 @login_required
 def prediction(request):
-    return render(request,'prediction/prediction.html')
+    if request.method=="POST":
+        bedroom = request.POST.get('bedroom')
+        bathroom = request.POST.get('bathroom')
+        floors = request.POST.get('floors')
+        parking = request.POST.get('parking')
+        area = request.POST.get('area')
+        road = request.POST.get('road')
+        amenities = request.POST.get('amenities_no')
+        
+        price = modules.predict([bedroom,bathroom,floors,parking,area,road,amenities])
+        return render(request,'prediction/prediction.html',{'price':price})
+    else:
+        return render(request,'prediction/prediction.html')
 
 
 def signup(request):
