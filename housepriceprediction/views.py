@@ -70,7 +70,9 @@ def prediction(request):
         amenities = request.POST.get('amenities_no')
         
         price = modules.predict([bedroom,bathroom,floors,parking,area,road,amenities])
-        return render(request,'prediction/prediction.html',{'price':price})
+        # 
+        pred_price=price[0]
+        return render(request,'prediction/prediction.html',{'price':pred_price})
     else:
         return render(request,'prediction/prediction.html')
 

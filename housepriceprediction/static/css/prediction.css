@@ -4,7 +4,10 @@ html {
 }
 
 main {
-    margin: 180px 80px;
+    margin-top: 180px;
+    margin-bottom: 100px;
+    margin-left: 80px;
+    margin-right: 80px;
     background-color: white;
     border-radius: 45px;
     transform: scale(deg(1));
@@ -158,4 +161,17 @@ main {
 
 input[type="checkbox"] {
     color: gray;
+}
+
+.result {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.result span {
+    color: green;
+    font-size: 22px;
+    font-weight: 500;
 }

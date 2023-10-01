@@ -5,11 +5,6 @@ const usernameInput = document.querySelector("#username");
 const userMail = document.querySelector("#email");
 const passwordInput = document.querySelector("#password");
 const passwordConfirmInput = document.querySelector("#confirm_pass");
-// const terms = document.querySelector("#terms");
-// const errorsController = document.querySelector(".errors");
-
-// TODO: Create an event listener for when the form is submitted and do the following inside of it.
-
 form.addEventListener("submit", (e) => {
   // e.preventDefault();
   validateForm();
@@ -59,7 +54,4 @@ const validateForm = () => {
   } else {
     setSucess(passwordConfirmInput);
   }
-
 };
-
-// TODO: Define this function
